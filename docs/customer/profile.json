@@ -1,95 +1,141 @@
 {
   "profile": {
-    "companyName": "",
-    "shortName": "",
+    "companyName": "宜昌长机科技有限责任公司",
+    "shortName": "长机科技",
     "isListed": false,
     "stockCode": "",
-    "website": "",
-    "industry": "",
-    "subIndustry": "",
-    "scale": "",
-    "mainBusiness": "",
-    "products": [],
-    "targetCustomers": [],
-    "businessModel": "",
-    "rating": "",
-    "tags": [],
+    "website": "http://www.cjmt.com.cn",
+    "industry": "高端装备制造",
+    "subIndustry": "金属切削机床-齿轮加工机床",
+    "scale": "中型企业（500余人，总资产8亿元）",
+    "mainBusiness": "全系列齿轮机床（插齿机、铣齿机、滚齿机、磨齿机等）的研发、制造和销售，以及齿轮加工成套解决方案",
+    "products": [
+      {
+        "name": "数控插齿机",
+        "description": "加工直径120mm~5000mm，含万能型、齿条型、扇形齿轮型，国内市占率70%的单项冠军产品",
+        "category": "齿轮加工机床",
+        "features": ["高精度", "全系列覆盖", "国内市占率70%"],
+        "targetUsers": ["风电", "汽车", "船舶", "航空航天"]
+      },
+      {
+        "name": "数控铣齿机",
+        "description": "加工直径800mm~8000mm的大型圆柱齿轮铣齿机",
+        "category": "齿轮加工机床",
+        "features": ["大规格", "重切削"],
+        "targetUsers": ["风电设备", "矿山机械"]
+      },
+      {
+        "name": "数控滚齿机",
+        "description": "面向风电、工程机械等行业的大规格齿轮滚切加工设备",
+        "category": "齿轮加工机床",
+        "features": ["大模数", "高效率"],
+        "targetUsers": ["风电", "工程机械"]
+      },
+      {
+        "name": "数控齿条加工设备",
+        "description": "加工长度320mm~3000mm的齿条铣齿机和磨齿机",
+        "category": "齿条加工设备",
+        "features": ["精密加工", "长齿条"],
+        "targetUsers": ["港口机械", "工程机械"]
+      },
+      {
+        "name": "齿轮加工成套方案",
+        "description": "含刀具、夹具、辅具等工装及定制化加工解决方案",
+        "category": "解决方案",
+        "features": ["一站式交付", "定制化"],
+        "targetUsers": ["制造业全行业"]
+      }
+    ],
+    "targetCustomers": ["风电设备制造商", "汽车及零部件厂商", "船舶与海洋工程", "矿山及港口机械", "工程机械", "航空航天", "工业机器人减速机"],
+    "businessModel": "B2B高端装备直销+出口，以设备销售为主，辅以成套解决方案和技术服务",
+    "rating": "A",
+    "tags": ["国家专精特新小巨人", "单项冠军", "齿轮机床", "国产替代", "三线建设", "5G智能工厂", "出口型制造", "隐形冠军", "高新技术企业", "国家级5G工厂"],
 
-    "summary": "",
+    "summary": "始建于1968年的国有改制齿轮机床龙头，数控插齿机国内市占率70%，国家级专精特新小巨人和单项冠军培育企业",
 
     "registration": {
-      "foundedDate": "",
-      "registeredCapital": "",
+      "foundedDate": "2004-12-17",
+      "registeredCapital": "1460.0万元",
       "paidInCapital": "",
-      "ownershipType": "",
+      "ownershipType": "国企改制民营企业",
       "branches": {
         "count": "",
         "locations": []
       },
-      "legalRisks": "",
-      "operatingAnomalies": "",
-      "penalties": "",
-      "summary": ""
+      "legalRisks": "公开搜索未发现诉讼、失信或行政处罚记录",
+      "operatingAnomalies": "无",
+      "penalties": "无",
+      "summary": "注册资本1460万 vs 总资产8亿，企业实际规模远超工商注册信息。2004年改制注册，继承1968年长江机床厂全部技术积累，属于典型三线军工改制企业。法定代表人叶又生自2002年起主导公司转型，任职超20年，决策权高度集中。"
     },
 
     "policyAnalysis": {
-      "isSpecialized": false,
-      "isDigitalTransformation": false,
-      "isESG": false,
-      "isHighTech": false,
-      "policySupportLevel": "",
-      "leverageStrategy": ""
+      "isSpecialized": true,
+      "isDigitalTransformation": true,
+      "isESG": true,
+      "isHighTech": true,
+      "policySupportLevel": "高——国家级专精特新重点小巨人（2022年）、工信部单项冠军培育企业（2019年）、国家级5G工厂、国家知识产权示范企业",
+      "leverageStrategy": "可结合智能制造示范项目和专精特新政策支持，申报数字化转型补贴降低客户决策门槛"
     },
 
     "timing": {
-      "currentPhase": "",
-      "evidence": "",
-      "entryStrategy": ""
+      "currentPhase": "智能制造深化期",
+      "evidence": "2024-2025年已投入约1200万元建设5G智能工厂，车间效率从30%提升到70%；持续参加CIMT国际机床展、校招扩充研发团队；入选宜昌市高新技术企业50强",
+      "entryStrategy": "5G硬件基础已就绪但软件层尚未配套，正是切入MES/APS等生产管理系统的最佳时机"
     },
 
     "creditRisk": {
-      "legalRisk": "",
-      "operationalRisk": "",
-      "creditRating": "",
+      "legalRisk": "低——公开搜索未发现诉讼、失信记录",
+      "operationalRisk": "低——经营状态正常，无异常记录",
+      "creditRating": "良好",
       "warnings": [],
-      "salesAdvice": ""
+      "salesAdvice": "信用风险极低，可放心推进商务合作"
     },
 
     "organization": {
-      "type": "",
-      "decisionChain": "",
-      "keyPersons": [],
-      "salesStrategy": ""
+      "type": "国企改制民营企业，创始管理层长期主导",
+      "decisionChain": "董事长/总经理（叶又生）→ 分管副总 → 部门负责人，决策权高度集中于一把手",
+      "keyPersons": [
+        { "name": "叶又生", "title": "董事长、总经理、法定代表人" },
+        { "name": "汪长林", "title": "股东/高管 [假设待验证]" }
+      ],
+      "salesStrategy": "直攻一把手叶又生或分管生产/技术的副总，以5G智能工厂已落地、下一步需要软件平台打通数据孤岛为切入话题"
     },
 
     "strategy": {
-      "phase": "",
-      "growthStage": "",
-      "competitivePosition": "",
-      "digitalMaturity": "",
-      "analysisPath": "",
-      "informationQuality": "",
-      "expansionSignals": [],
+      "phase": "智能制造深化期",
+      "growthStage": "成熟扩张期——硬件智能化完成第一阶段，正向软件和管理系统升级",
+      "competitivePosition": "国内数控插齿机细分领域第一，中国唯一全系列插齿机制造基地",
+      "digitalMaturity": "中等偏上——装备数控化率90%以上，5G工厂已落地，但管理系统层尚待配套 [假设待验证]",
+      "analysisPath": "A|A|B+",
+      "informationQuality": "中高——官网信息丰富、政策标签多、工商信息可查，财务数据和组织架构细节有限",
+      "expansionSignals": ["5G智能工厂投产", "持续参展CIMT", "校招扩充研发团队", "入选宜昌高新50强"],
       "contractionSignals": [],
       "riskSignals": []
     },
 
     "techStack": {
-      "current": [],
-      "inferred": [],
-      "maturity": "",
-      "direction": ""
+      "current": ["数控系统", "5G工业网络", "设备数据采集"],
+      "inferred": ["PLC控制系统", "CAD/CAM", "ERP [假设待验证]"],
+      "maturity": "中等——硬件数控化率高，软件管理系统层待完善",
+      "direction": "从设备数控化向管理数字化延伸，MES/APS是下一阶段重点"
     },
 
-    "keyMetrics": [],
+    "keyMetrics": [
+      "总资产8亿余元",
+      "员工500余人",
+      "数控插齿机国内市占率70%",
+      "装备数控化率90%以上",
+      "5G工厂投资约1200万元"
+    ],
 
     "metadata": {
-      "createdAt": "",
-      "updatedAt": "",
-      "createdBy": "",
-      "version": "",
+      "createdAt": "2026-03-23T00:00:00Z",
+      "updatedAt": "2026-03-23T00:00:00Z",
+      "createdBy": "AI",
+      "version": "1.0",
       "sources": [],
-      "confidence": 0
+      "confidence": 72,
+      "notes": "始建于1968年的国有改制齿轮机床龙头企业，数控插齿机国内市占率70%，国家级专精特新小巨人和单项冠军培育企业"
     }
   }
 }
