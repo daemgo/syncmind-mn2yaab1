@@ -358,16 +358,17 @@
 
     "constraints": {
       "budget": {
-        "total": "未知",
+        "total": "约100万元（不含硬件）",
         "breakdown": [],
         "paymentTerms": "",
-        "flexibility": "未知"
+        "flexibility": "未知",
+        "note": "纯软件投入，硬件费用另计"
       },
       "timeline": {
         "expectedStart": "未知",
-        "expectedGoLive": "未知",
-        "hardDeadline": "",
-        "reason": "",
+        "expectedGoLive": "2026年底前",
+        "hardDeadline": "2026-12-31",
+        "reason": "客户期望年底前上线",
         "flexibility": "未知"
       },
       "resources": {
@@ -494,7 +495,8 @@
         "priority": "must",
         "targetPerson": "项目决策人/财务",
         "purpose": "确定方案规模和实施范围",
-        "status": "open"
+        "status": "answered",
+        "answer": "约100万元（不含硬件费用）"
       },
       {
         "id": "Q-003",
@@ -518,7 +520,8 @@
         "priority": "must",
         "targetPerson": "项目决策人",
         "purpose": "确定实施节奏和分期策略",
-        "status": "open"
+        "status": "answered",
+        "answer": "期望2026年底前上线"
       },
       {
         "id": "Q-006",
@@ -563,17 +566,17 @@
     ],
 
     "completionRate": {
-      "overall": 35,
+      "overall": 42,
       "byCategory": {
         "background": 55,
         "businessNeeds": 45,
         "technicalNeeds": 30,
-        "constraints": 15,
+        "constraints": 40,
         "scope": 40,
         "users": 25
       },
       "blockers": [
-        "预算和时间线完全未知",
+        "预算约100万（不含硬件），时间线为年底前上线——需评估是否足够覆盖全部分期范围",
         "5G数据采集系统的技术细节未知",
         "客户内部设备管理流程细节未知",
         "定制 vs SaaS的决策倾向未确认"
