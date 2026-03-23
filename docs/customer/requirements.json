@@ -89,15 +89,19 @@
         { "name": "ERP", "status": "推测在用 [假设待验证]", "note": "中型制造企业通常已部署" }
       ],
       "currentProcess": {
-        "overview": "设备管理以人工为主，故障后维修为主要模式 [假设待验证]",
+        "overview": "设备管理以人工为主，故障后维修为主要模式，全流程线下沟通，无信息化系统支持 [已确认]",
         "steps": [
-          "设备故障发生 → 车间口头/电话报修",
-          "维修人员现场判断 → 安排维修",
-          "备件查找和领用 → 维修执行",
-          "维修完成 → 纸质记录归档"
+          "设备出故障 → 上报班组长",
+          "班组长电话通知维修人员",
+          "维修人员到场线下修复",
+          "维修后走纸质单子提交报销",
+          "内部修不了 → 上报设备部门负责人",
+          "设备部门负责人安排外部维修人员来修"
         ],
         "bottlenecks": [
-          "故障响应慢，信息传递靠人工",
+          "全流程依赖电话和线下沟通，信息传递效率低 [已确认]",
+          "维修费用走纸质报销，流程慢且难追踪 [已确认]",
+          "内外部维修协同靠人工协调，缺乏系统管理 [已确认]",
           "维修记录不系统，无法沉淀经验",
           "备件库存不透明，常出现缺件等件情况 [假设待验证]",
           "缺乏预防性维护计划，设备过度维护或欠维护并存 [假设待验证]"
@@ -108,6 +112,21 @@
           "description": "设备故障突发，维护靠经验，OEE低",
           "source": "customer-stated",
           "severity": "high"
+        },
+        {
+          "description": "设备报修全流程线下沟通（电话+纸质单），无信息化手段",
+          "source": "customer-stated",
+          "severity": "high"
+        },
+        {
+          "description": "维修费用走纸质报销，流程繁琐且难追溯",
+          "source": "customer-stated",
+          "severity": "medium"
+        },
+        {
+          "description": "内部修不了的设备需层层上报再请外部维修，协调效率低",
+          "source": "customer-stated",
+          "severity": "medium"
         },
         {
           "description": "5G硬件基础已就绪但软件层尚未配套",
@@ -160,13 +179,13 @@
         "id": "REQ-003",
         "title": "故障报修与工单管理",
         "category": "business",
-        "description": "支持车间现场快速报修（扫码/移动端），自动派单或人工调度，跟踪维修全过程（接单→诊断→维修→验收），记录故障原因和处理方案",
+        "description": "支持车间现场快速报修（替代当前电话+口头上报模式），自动派单或人工调度，跟踪维修全过程（报修→班组长确认→派单→维修→验收→报销），支持内部维修和外部维修两条路径",
         "priority": "must",
-        "confidence": "medium",
+        "confidence": "high",
         "status": "active",
         "source": {
-          "type": "sales-observation",
-          "detail": "EAM核心流程，结合齿轮机床车间场景推演"
+          "type": "customer-stated",
+          "detail": "客户详细描述了现有报修流程：故障→班组长→电话通知维修人员→线下修复→纸质报销"
         },
         "module": "work-order"
       },
@@ -272,19 +291,39 @@
         "id": "REQ-011",
         "title": "ERP/财务系统集成",
         "category": "technical",
-        "description": "EAM中的备件采购、维修成本等数据可能需要与ERP或财务系统对接，避免数据重复录入 [是否有ERP及集成需求待确认]",
-        "priority": "could",
-        "confidence": "low",
+        "description": "EAM中的维修费用报销、备件采购等数据需要与财务系统对接。客户当前维修后走纸质单子报销，存在明确的电子化需求 [具体对接哪个财务/ERP系统待确认]",
+        "priority": "should",
+        "confidence": "medium",
         "status": "active",
         "source": {
-          "type": "profile-inference",
-          "detail": "中型企业通常有ERP，资产和备件数据需要打通"
+          "type": "customer-stated",
+          "detail": "客户提到维修后走纸质单子提交报销，存在实际的费用流转场景"
         },
         "module": "integration"
+      },
+      {
+        "id": "REQ-012",
+        "title": "外部维修商协同管理",
+        "category": "business",
+        "description": "内部维修团队无法修复时，需上报设备部门负责人，由其联系外部维修商。系统需支持：内部→外部的工单升级流程、外部维修商信息管理、外部维修记录和费用跟踪",
+        "priority": "should",
+        "confidence": "high",
+        "status": "active",
+        "source": {
+          "type": "customer-stated",
+          "detail": "客户原话：'维修不了的上报给设备部门负责人，请外面的人来维修'"
+        },
+        "module": "work-order"
       }
     ],
 
     "users": [
+      {
+        "role": "班组长",
+        "count": "多人 [具体数量待确认]",
+        "primaryTasks": ["接收设备故障上报", "联系/派单维修人员", "跟踪维修进度"],
+        "skills": "一线管理角色，故障报修的第一接收人 [已确认]"
+      },
       {
         "role": "设备管理员",
         "count": "少量（推测2-5人）[假设待验证]",
@@ -294,8 +333,14 @@
       {
         "role": "维修人员",
         "count": "推测10-20人 [假设待验证]",
-        "primaryTasks": ["接收维修工单", "现场故障诊断与维修", "维修记录填写", "备件领用"],
-        "skills": "机床维修专业技能，需要简单易用的移动端操作"
+        "primaryTasks": ["接收维修工单", "现场故障诊断与维修", "维修记录填写", "备件领用", "提交维修报销单"],
+        "skills": "机床维修专业技能，需要简单易用的移动端操作 [已确认存在该角色]"
+      },
+      {
+        "role": "设备部门负责人",
+        "count": "1-2人",
+        "primaryTasks": ["处理内部无法修复的升级工单", "决策是否请外部维修", "外部维修商管理"],
+        "skills": "设备管理决策者，处理升级问题 [已确认]"
       },
       {
         "role": "车间操作工/点检员",
@@ -310,6 +355,12 @@
         "skills": "管理角色，关注数据和报表"
       },
       {
+        "role": "外部维修商",
+        "count": "不定",
+        "primaryTasks": ["接收外部维修工单", "现场维修", "提交维修报告和费用"],
+        "skills": "外部协作方，需要简化的协同入口 [已确认存在该场景]"
+      },
+      {
         "role": "高层管理（分管副总/总经理）",
         "count": "1-2人",
         "primaryTasks": ["查看设备整体运行情况", "维护成本分析", "决策支持"],
@@ -321,7 +372,9 @@
       "inScope": [
         "设备资产台账管理",
         "预防性维护计划与执行",
-        "故障报修与工单全流程",
+        "故障报修与工单全流程（含内部维修+外部维修升级）",
+        "外部维修商协同管理",
+        "维修费用报销电子化",
         "备件库存管理",
         "设备OEE分析",
         "与现有5G数据采集系统集成"
@@ -366,7 +419,8 @@
         { "need": "REQ-008 5G集成", "priority": "must", "phase": "二期" },
         { "need": "REQ-009 移动端", "priority": "should", "phase": "一期" },
         { "need": "REQ-010 权限管理", "priority": "must", "phase": "一期" },
-        { "need": "REQ-011 ERP集成", "priority": "could", "phase": "三期" }
+        { "need": "REQ-011 ERP/财务集成", "priority": "should", "phase": "一期" },
+        { "need": "REQ-012 外部维修商协同", "priority": "should", "phase": "一期" }
       ]
     },
 
@@ -526,7 +580,8 @@
         "priority": "must",
         "targetPerson": "设备管理部门负责人",
         "purpose": "理解现状才能设计合理的系统流程",
-        "status": "open"
+        "status": "answered",
+        "answer": "设备故障→上报班组长→班组长电话通知维修人员→线下修复→纸质单子报销；修不了的上报设备部门负责人→请外部维修。全程线下沟通，无设备管理软件。"
       },
       {
         "id": "Q-005",
@@ -580,18 +635,17 @@
     ],
 
     "completionRate": {
-      "overall": 48,
+      "overall": 53,
       "byCategory": {
-        "background": 55,
-        "businessNeeds": 45,
+        "background": 70,
+        "businessNeeds": 52,
         "technicalNeeds": 30,
         "constraints": 60,
-        "scope": 40,
-        "users": 25
+        "scope": 45,
+        "users": 40
       },
       "blockers": [
         "5G数据采集系统的技术细节未知",
-        "客户内部设备管理流程细节未知",
         "定制 vs SaaS的决策倾向未确认"
       ]
     }
