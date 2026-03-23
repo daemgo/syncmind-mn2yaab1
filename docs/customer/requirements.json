@@ -1,5 +1,5 @@
 {
-  "currentVersion": "v0.1",
+  "currentVersion": "v0.2",
   "status": "draft",
 
   "versions": [
@@ -9,6 +9,13 @@
       "trigger": "cold-start + 首次拜访素材",
       "inputSummary": "基于客户档案推演 + 首次上门拜访反馈（EAM需求）",
       "changeSummary": ["从档案和拜访信息推演11条需求（业务7条+技术4条）", "客户明确EAM方向，SaaS与定制并行评估中"]
+    },
+    {
+      "version": "v0.2",
+      "createdAt": "2026-03-23",
+      "trigger": "销售跟进反馈（叶总沟通）",
+      "inputSummary": "叶总明确年底上线要求，预算单独立项审批可快速通过",
+      "changeSummary": ["项目紧迫度从'中高'升至'高'", "预算审批路径明确，决策阻力低", "时间线从'期望'升级为'硬性要求'", "赢单概率上调"]
     }
   ],
 
@@ -17,13 +24,13 @@
       "salesPerson": "",
       "lastUpdated": "2026-03-23",
       "overallAssessment": {
-        "customerIntent": "客户主动寻找EAM软件，意向明确",
-        "projectUrgency": "中高——正在调研市场方案，处于选型阶段",
-        "budgetSituation": "未知",
+        "customerIntent": "客户主动寻找EAM软件，意向明确，一把手亲自推动",
+        "projectUrgency": "高——叶总明确要求年底前上线，属于硬性时间节点",
+        "budgetSituation": "预算可单独立项走审批，叶总表示会很快通过，预算障碍基本排除",
         "competitionStatus": "客户同时在看SaaS产品和定制开发两条路线",
-        "winProbability": "待评估",
-        "keyObstacles": ["尚未明确定制开发 vs SaaS采购的决策倾向", "预算和时间线未知"],
-        "confidenceLevel": "中"
+        "winProbability": "中高",
+        "keyObstacles": ["尚未明确定制开发 vs SaaS采购的决策倾向"],
+        "confidenceLevel": "中高"
       },
       "keyPersons": [],
       "realNeeds": {
@@ -37,9 +44,9 @@
         "secondaryFactors": [],
         "dealBreakers": []
       },
-      "notes": "客户上门拜访，主动提出EAM需求，同时看SaaS和定制两条路，定制对我方是机会",
+      "notes": "客户上门拜访，主动提出EAM需求，同时看SaaS和定制两条路，定制对我方是机会。叶总后续明确年底上线、预算单独立项审批，项目推进决心强",
       "concerns": [],
-      "suggestions": ["尽快摸清客户对定制 vs SaaS的偏好和预算范围"]
+      "suggestions": ["趁项目推进意愿强烈，尽快安排技术交流摸清5G系统接口细节", "明确定制 vs SaaS的决策倾向"]
     },
 
     "sources": {
@@ -361,15 +368,15 @@
         "total": "约100万元（不含硬件）",
         "breakdown": [],
         "paymentTerms": "",
-        "flexibility": "未知",
-        "note": "纯软件投入，硬件费用另计"
+        "flexibility": "预算可单独立项，审批流程短，灵活度较高",
+        "note": "纯软件投入，硬件费用另计。叶总承诺预算审批会很快通过，预算障碍基本排除"
       },
       "timeline": {
         "expectedStart": "未知",
         "expectedGoLive": "2026年底前",
         "hardDeadline": "2026-12-31",
-        "reason": "客户期望年底前上线",
-        "flexibility": "未知"
+        "reason": "叶总明确要求年底前上线（从期望升级为硬性要求）",
+        "flexibility": "低——一把手亲自定的时间节点"
       },
       "resources": {
         "clientTeam": [
@@ -386,7 +393,7 @@
         "deploymentConstraints": ["部署方式未确认——本地部署 or 私有云 or 混合部署"]
       },
       "organizational": {
-        "approvalProcess": "决策权集中于董事长叶又生，审批流程预计较短",
+        "approvalProcess": "决策权集中于董事长叶又生，预算可单独立项审批且叶总承诺快速通过，审批流程极短",
         "changeManagement": "车间一线人员信息化接受度待评估 [假设待验证]",
         "vendorPolicies": [],
         "complianceRequirements": []
@@ -521,7 +528,7 @@
         "targetPerson": "项目决策人",
         "purpose": "确定实施节奏和分期策略",
         "status": "answered",
-        "answer": "期望2026年底前上线"
+        "answer": "叶总明确要求2026年底前上线，属于硬性时间节点"
       },
       {
         "id": "Q-006",
@@ -566,17 +573,16 @@
     ],
 
     "completionRate": {
-      "overall": 42,
+      "overall": 48,
       "byCategory": {
         "background": 55,
         "businessNeeds": 45,
         "technicalNeeds": 30,
-        "constraints": 40,
+        "constraints": 60,
         "scope": 40,
         "users": 25
       },
       "blockers": [
-        "预算约100万（不含硬件），时间线为年底前上线——需评估是否足够覆盖全部分期范围",
         "5G数据采集系统的技术细节未知",
         "客户内部设备管理流程细节未知",
         "定制 vs SaaS的决策倾向未确认"
