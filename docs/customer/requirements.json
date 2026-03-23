@@ -1,150 +1,583 @@
 {
-  "currentVersion": "",
+  "currentVersion": "v0.1",
   "status": "draft",
 
-  "versions": [],
+  "versions": [
+    {
+      "version": "v0.1",
+      "createdAt": "2026-03-23",
+      "trigger": "cold-start + 首次拜访素材",
+      "inputSummary": "基于客户档案推演 + 首次上门拜访反馈（EAM需求）",
+      "changeSummary": ["从档案和拜访信息推演11条需求（业务7条+技术4条）", "客户明确EAM方向，SaaS与定制并行评估中"]
+    }
+  ],
 
   "current": {
     "salesInput": {
       "salesPerson": "",
-      "lastUpdated": "",
+      "lastUpdated": "2026-03-23",
       "overallAssessment": {
-        "customerIntent": "",
-        "projectUrgency": "",
-        "budgetSituation": "",
-        "competitionStatus": "",
-        "winProbability": "",
-        "keyObstacles": [],
-        "confidenceLevel": ""
+        "customerIntent": "客户主动寻找EAM软件，意向明确",
+        "projectUrgency": "中高——正在调研市场方案，处于选型阶段",
+        "budgetSituation": "未知",
+        "competitionStatus": "客户同时在看SaaS产品和定制开发两条路线",
+        "winProbability": "待评估",
+        "keyObstacles": ["尚未明确定制开发 vs SaaS采购的决策倾向", "预算和时间线未知"],
+        "confidenceLevel": "中"
       },
       "keyPersons": [],
       "realNeeds": {
-        "explicitNeeds": [],
-        "implicitNeeds": [],
-        "suspectedNeeds": [],
-        "needsNotMentioned": []
+        "explicitNeeds": ["EAM企业资产管理软件"],
+        "implicitNeeds": ["与现有5G工厂基础设施集成", "设备数据从采集到管理闭环"],
+        "suspectedNeeds": ["备件库存管理", "OEE分析看板", "移动端现场操作"],
+        "needsNotMentioned": ["与ERP等上游系统的数据打通"]
       },
       "decisionFactors": {
-        "primaryFactor": "",
+        "primaryFactor": "未知",
         "secondaryFactors": [],
         "dealBreakers": []
       },
-      "notes": "",
+      "notes": "客户上门拜访，主动提出EAM需求，同时看SaaS和定制两条路，定制对我方是机会",
       "concerns": [],
-      "suggestions": []
+      "suggestions": ["尽快摸清客户对定制 vs SaaS的偏好和预算范围"]
     },
 
     "sources": {
-      "meetings": [],
+      "meetings": [
+        {
+          "date": "2026-03-23",
+          "type": "客户上门拜访",
+          "summary": "客户明确要做EAM，正在调研SaaS和定制开发两种路线",
+          "participants": []
+        }
+      ],
       "documents": [],
       "communications": [],
-      "observations": []
+      "observations": [
+        "客户愿意主动接触了解EAM需求，态度开放",
+        "已有5G工厂硬件基础和设备数据采集能力"
+      ]
     },
 
     "background": {
-      "businessContext": "",
-      "currentChallenges": [],
-      "triggerEvent": "",
-      "currentSystems": [],
+      "businessContext": "宜昌长机科技是国内齿轮机床龙头企业，500余人规模，总资产8亿元。数控插齿机国内市占率70%，装备数控化率90%以上。2024-2025年投入约1200万元建设5G智能工厂，车间设备联网和数据采集已完成，但设备管理仍依赖传统方式。",
+      "currentChallenges": [
+        "设备故障突发，缺乏预警机制，影响产线连续性",
+        "维护保养靠经验，没有系统化的维护计划和执行跟踪",
+        "设备综合效率（OEE）偏低，缺乏量化分析手段",
+        "5G数据采集能力已具备，但数据未被有效利用于设备管理决策"
+      ],
+      "triggerEvent": "5G智能工厂硬件层已就绪，软件管理层成为下一步刚需；客户主动发起EAM选型",
+      "currentSystems": [
+        { "name": "数控系统", "status": "在用", "note": "装备数控化率90%以上" },
+        { "name": "5G工业网络", "status": "在用", "note": "2024-2025年投产" },
+        { "name": "设备数据采集系统", "status": "在用", "note": "已能采集设备运行数据" },
+        { "name": "ERP", "status": "推测在用 [假设待验证]", "note": "中型制造企业通常已部署" }
+      ],
       "currentProcess": {
-        "overview": "",
-        "steps": [],
-        "bottlenecks": []
+        "overview": "设备管理以人工为主，故障后维修为主要模式 [假设待验证]",
+        "steps": [
+          "设备故障发生 → 车间口头/电话报修",
+          "维修人员现场判断 → 安排维修",
+          "备件查找和领用 → 维修执行",
+          "维修完成 → 纸质记录归档"
+        ],
+        "bottlenecks": [
+          "故障响应慢，信息传递靠人工",
+          "维修记录不系统，无法沉淀经验",
+          "备件库存不透明，常出现缺件等件情况 [假设待验证]",
+          "缺乏预防性维护计划，设备过度维护或欠维护并存 [假设待验证]"
+        ]
       },
-      "painPoints": [],
-      "expectedOutcomes": []
+      "painPoints": [
+        {
+          "description": "设备故障突发，维护靠经验，OEE低",
+          "source": "customer-stated",
+          "severity": "high"
+        },
+        {
+          "description": "5G硬件基础已就绪但软件层尚未配套",
+          "source": "profile-inference",
+          "severity": "high"
+        },
+        {
+          "description": "设备台账分散，缺乏统一管理平台",
+          "source": "industry-pattern",
+          "severity": "medium"
+        }
+      ],
+      "expectedOutcomes": [
+        "建立完整的设备资产管理体系",
+        "实现设备维护从被动维修到主动预防的转变",
+        "充分利用已有5G和数据采集基础，实现设备数据驱动决策"
+      ]
     },
 
-    "needs": [],
+    "needs": [
+      {
+        "id": "REQ-001",
+        "title": "设备台账管理",
+        "category": "business",
+        "description": "建立统一的设备资产台账，覆盖全厂数控机床（插齿机、铣齿机、滚齿机、磨齿机等），记录设备基本信息、技术参数、精度等级、供应商信息、购置记录等",
+        "priority": "must",
+        "confidence": "medium",
+        "status": "active",
+        "source": {
+          "type": "sales-observation",
+          "detail": "EAM系统基础模块，客户明确要做EAM"
+        },
+        "module": "asset-management"
+      },
+      {
+        "id": "REQ-002",
+        "title": "预防性维护计划管理",
+        "category": "business",
+        "description": "支持按设备类型、精度等级制定周期性维护计划（日点检、周保养、月度/季度/年度维护），自动生成维护工单并跟踪执行",
+        "priority": "must",
+        "confidence": "medium",
+        "status": "active",
+        "source": {
+          "type": "customer-stated",
+          "detail": "客户痛点：维护靠经验"
+        },
+        "module": "preventive-maintenance"
+      },
+      {
+        "id": "REQ-003",
+        "title": "故障报修与工单管理",
+        "category": "business",
+        "description": "支持车间现场快速报修（扫码/移动端），自动派单或人工调度，跟踪维修全过程（接单→诊断→维修→验收），记录故障原因和处理方案",
+        "priority": "must",
+        "confidence": "medium",
+        "status": "active",
+        "source": {
+          "type": "sales-observation",
+          "detail": "EAM核心流程，结合齿轮机床车间场景推演"
+        },
+        "module": "work-order"
+      },
+      {
+        "id": "REQ-004",
+        "title": "备件管理",
+        "category": "business",
+        "description": "管理设备备件的入库、出库、库存盘点，支持按设备关联备件清单，设置安全库存和自动预警，记录备件使用历史",
+        "priority": "should",
+        "confidence": "low",
+        "status": "active",
+        "source": {
+          "type": "industry-pattern",
+          "detail": "齿轮机床备件种类多且专用性强，备件管理是EAM标配模块"
+        },
+        "module": "spare-parts"
+      },
+      {
+        "id": "REQ-005",
+        "title": "设备OEE分析",
+        "category": "business",
+        "description": "基于已有5G数据采集基础，计算设备综合效率（可用率×性能率×合格率），按车间、产线、设备维度展示OEE趋势，识别效率瓶颈",
+        "priority": "should",
+        "confidence": "medium",
+        "status": "active",
+        "source": {
+          "type": "customer-stated",
+          "detail": "客户痛点明确提到OEE低"
+        },
+        "module": "oee-analysis"
+      },
+      {
+        "id": "REQ-006",
+        "title": "设备运行监控看板",
+        "category": "business",
+        "description": "利用5G网络实时采集的设备数据，展示全厂设备运行状态（运行/待机/故障/维护），支持车间级和设备级两层视图",
+        "priority": "should",
+        "confidence": "low",
+        "status": "active",
+        "source": {
+          "type": "profile-inference",
+          "detail": "已有5G网络和数据采集能力，实时监控是自然延伸"
+        },
+        "module": "monitoring"
+      },
+      {
+        "id": "REQ-007",
+        "title": "设备知识库与故障经验库",
+        "category": "business",
+        "description": "积累设备维修经验，建立常见故障的诊断步骤和解决方案库，新员工可快速查找参考，减少对老师傅经验的依赖",
+        "priority": "could",
+        "confidence": "low",
+        "status": "active",
+        "source": {
+          "type": "industry-pattern",
+          "detail": "制造业普遍痛点：维修知识留在老师傅脑子里"
+        },
+        "module": "knowledge-base"
+      },
+      {
+        "id": "REQ-008",
+        "title": "5G网络与数据采集系统集成",
+        "category": "technical",
+        "description": "EAM系统需与现有5G工业网络和设备数据采集系统对接，获取设备实时运行数据（运行状态、关键参数、报警信息等），具体接口协议待确认",
+        "priority": "must",
+        "confidence": "medium",
+        "status": "active",
+        "source": {
+          "type": "profile-inference",
+          "detail": "客户已有5G基础设施，EAM必须与之集成才有价值"
+        },
+        "module": "integration"
+      },
+      {
+        "id": "REQ-009",
+        "title": "移动端支持",
+        "category": "technical",
+        "description": "维修人员和点检人员需要在车间现场使用移动设备操作（报修、接单、点检记录、扫码查设备），需支持手机或工业PDA访问",
+        "priority": "should",
+        "confidence": "low",
+        "status": "active",
+        "source": {
+          "type": "industry-pattern",
+          "detail": "车间场景移动端是刚需，点检和报修不可能回办公室操作电脑"
+        },
+        "module": "mobile"
+      },
+      {
+        "id": "REQ-010",
+        "title": "数据安全与权限管理",
+        "category": "technical",
+        "description": "支持按角色（设备管理员、维修人员、车间主任、管理层）分配功能权限和数据权限，设备数据本地部署或私有云部署 [部署方式待确认]",
+        "priority": "must",
+        "confidence": "low",
+        "status": "active",
+        "source": {
+          "type": "industry-pattern",
+          "detail": "中型制造企业标准要求，尤其涉及设备核心数据"
+        },
+        "module": "security"
+      },
+      {
+        "id": "REQ-011",
+        "title": "ERP/财务系统集成",
+        "category": "technical",
+        "description": "EAM中的备件采购、维修成本等数据可能需要与ERP或财务系统对接，避免数据重复录入 [是否有ERP及集成需求待确认]",
+        "priority": "could",
+        "confidence": "low",
+        "status": "active",
+        "source": {
+          "type": "profile-inference",
+          "detail": "中型企业通常有ERP，资产和备件数据需要打通"
+        },
+        "module": "integration"
+      }
+    ],
 
-    "users": [],
+    "users": [
+      {
+        "role": "设备管理员",
+        "count": "少量（推测2-5人）[假设待验证]",
+        "primaryTasks": ["设备台账维护", "维护计划制定", "OEE分析", "备件库存管理"],
+        "skills": "熟悉设备管理流程，具备一定信息化操作能力"
+      },
+      {
+        "role": "维修人员",
+        "count": "推测10-20人 [假设待验证]",
+        "primaryTasks": ["接收维修工单", "现场故障诊断与维修", "维修记录填写", "备件领用"],
+        "skills": "机床维修专业技能，需要简单易用的移动端操作"
+      },
+      {
+        "role": "车间操作工/点检员",
+        "count": "推测较多 [假设待验证]",
+        "primaryTasks": ["日常点检", "异常报修", "设备状态确认"],
+        "skills": "操作工为主，信息化水平参差不齐，需要极简操作界面"
+      },
+      {
+        "role": "车间主任/生产管理",
+        "count": "少量",
+        "primaryTasks": ["查看设备状态看板", "审批维修工单", "查看OEE报表"],
+        "skills": "管理角色，关注数据和报表"
+      },
+      {
+        "role": "高层管理（分管副总/总经理）",
+        "count": "1-2人",
+        "primaryTasks": ["查看设备整体运行情况", "维护成本分析", "决策支持"],
+        "skills": "只看汇总数据和关键指标"
+      }
+    ],
 
     "scope": {
-      "inScope": [],
-      "outOfScope": [],
-      "futureScope": [],
-      "phases": [],
-      "priorityMatrix": []
+      "inScope": [
+        "设备资产台账管理",
+        "预防性维护计划与执行",
+        "故障报修与工单全流程",
+        "备件库存管理",
+        "设备OEE分析",
+        "与现有5G数据采集系统集成"
+      ],
+      "outOfScope": [
+        "MES生产执行系统",
+        "APS排程系统",
+        "质量管理系统（QMS）",
+        "ERP系统本身的建设或改造"
+      ],
+      "futureScope": [
+        "预测性维护（基于AI的故障预测）",
+        "设备全生命周期成本分析",
+        "MES集成（设备状态驱动排产）",
+        "能耗管理"
+      ],
+      "phases": [
+        {
+          "phase": "一期",
+          "scope": "设备台账 + 维护计划 + 工单管理 + 备件管理",
+          "note": "核心EAM功能落地 [分期方案为推演，待与客户确认]"
+        },
+        {
+          "phase": "二期",
+          "scope": "OEE分析 + 实时监控看板 + 5G深度集成",
+          "note": "数据驱动的设备管理 [假设待验证]"
+        },
+        {
+          "phase": "三期",
+          "scope": "知识库 + 预测性维护 + 外部系统集成",
+          "note": "智能化扩展 [假设待验证]"
+        }
+      ],
+      "priorityMatrix": [
+        { "need": "REQ-001 设备台账管理", "priority": "must", "phase": "一期" },
+        { "need": "REQ-002 预防性维护计划", "priority": "must", "phase": "一期" },
+        { "need": "REQ-003 故障报修与工单", "priority": "must", "phase": "一期" },
+        { "need": "REQ-004 备件管理", "priority": "should", "phase": "一期" },
+        { "need": "REQ-005 OEE分析", "priority": "should", "phase": "二期" },
+        { "need": "REQ-006 设备监控看板", "priority": "should", "phase": "二期" },
+        { "need": "REQ-007 知识库", "priority": "could", "phase": "三期" },
+        { "need": "REQ-008 5G集成", "priority": "must", "phase": "二期" },
+        { "need": "REQ-009 移动端", "priority": "should", "phase": "一期" },
+        { "need": "REQ-010 权限管理", "priority": "must", "phase": "一期" },
+        { "need": "REQ-011 ERP集成", "priority": "could", "phase": "三期" }
+      ]
     },
 
     "constraints": {
       "budget": {
-        "total": "",
+        "total": "未知",
         "breakdown": [],
         "paymentTerms": "",
-        "flexibility": ""
+        "flexibility": "未知"
       },
       "timeline": {
-        "expectedStart": "",
-        "expectedGoLive": "",
+        "expectedStart": "未知",
+        "expectedGoLive": "未知",
         "hardDeadline": "",
         "reason": "",
-        "flexibility": ""
+        "flexibility": "未知"
       },
       "resources": {
-        "clientTeam": [],
-        "availability": "",
-        "constraints": []
+        "clientTeam": [
+          { "role": "设备管理部门", "responsibility": "业务需求确认、系统验收", "note": "[假设待验证]" }
+        ],
+        "availability": "未知",
+        "constraints": ["车间生产不能中断，系统上线需分批切换 [假设待验证]"]
       },
       "technical": {
-        "existingInfrastructure": [],
+        "existingInfrastructure": ["5G工业网络", "设备数据采集系统", "数控系统"],
         "mandatoryTech": [],
         "prohibitedTech": [],
-        "networkConstraints": [],
-        "deploymentConstraints": []
+        "networkConstraints": ["车间5G网络已覆盖，具备移动端接入条件"],
+        "deploymentConstraints": ["部署方式未确认——本地部署 or 私有云 or 混合部署"]
       },
       "organizational": {
-        "approvalProcess": "",
-        "changeManagement": "",
+        "approvalProcess": "决策权集中于董事长叶又生，审批流程预计较短",
+        "changeManagement": "车间一线人员信息化接受度待评估 [假设待验证]",
         "vendorPolicies": [],
         "complianceRequirements": []
       }
     },
 
     "successCriteria": {
-      "businessCriteria": [],
-      "technicalCriteria": [],
-      "userCriteria": [],
-      "projectCriteria": [],
+      "businessCriteria": [
+        "设备非计划停机时间降低 [具体目标待与客户确认]",
+        "维护工单全流程线上化，消灭纸质流程",
+        "设备台账完整率达标 [具体指标待确认]"
+      ],
+      "technicalCriteria": [
+        "与5G数据采集系统稳定对接，数据延迟满足业务要求",
+        "系统可用性满足车间7×16小时或7×24小时使用需求 [待确认]"
+      ],
+      "userCriteria": [
+        "维修人员移动端操作流畅，报修到派单响应时间可控",
+        "一线人员经过简单培训即可上手"
+      ],
+      "projectCriteria": [
+        "按约定时间节点交付",
+        "核心模块上线后稳定运行"
+      ],
       "roiExpectation": {
-        "expectedBenefits": [],
-        "paybackPeriod": "",
+        "expectedBenefits": [
+          "减少设备非计划停机带来的产能损失",
+          "降低维修成本（从事后抢修转向计划性维护）",
+          "提升OEE，释放现有设备产能"
+        ],
+        "paybackPeriod": "未知",
         "quantifiableMetrics": []
       }
     },
 
     "risksAndAssumptions": {
-      "risks": [],
-      "assumptions": [],
-      "dependencies": []
+      "risks": [
+        {
+          "description": "客户最终选择SaaS产品而非定制开发",
+          "impact": "high",
+          "mitigation": "突出定制开发的优势：与5G基础设施深度集成、贴合齿轮机床行业特殊需求"
+        },
+        {
+          "description": "5G数据采集系统接口不开放或对接难度大",
+          "impact": "medium",
+          "mitigation": "前期技术调研阶段摸清数据采集系统厂商和接口协议"
+        },
+        {
+          "description": "车间一线人员对新系统接受度低",
+          "impact": "medium",
+          "mitigation": "移动端界面极简化设计，分阶段推广"
+        }
+      ],
+      "assumptions": [
+        "客户已有的5G数据采集系统提供标准化接口（如MQTT/OPC-UA）[待验证]",
+        "客户有专人负责设备管理相关业务，可配合需求调研和系统验收 [待验证]",
+        "客户车间Wi-Fi或5G信号覆盖满足移动端使用 [待验证]",
+        "客户愿意投入资源进行历史设备数据的迁移和录入 [待验证]"
+      ],
+      "dependencies": [
+        "5G数据采集系统的接口文档和技术配合",
+        "客户设备管理部门的业务配合"
+      ]
     },
 
     "solutionDirection": {
-      "overallApproach": "",
+      "overallApproach": "定制开发EAM系统，深度集成客户已有5G工业网络和数据采集能力，面向齿轮机床制造场景做针对性设计",
       "recommendedApproach": {
-        "type": "",
-        "rationale": "",
-        "alternatives": []
+        "type": "定制开发",
+        "rationale": "客户已在考虑定制路线；标准SaaS产品难以深度集成5G基础设施；齿轮机床行业有特殊的设备分类和维护要求",
+        "alternatives": [
+          { "type": "SaaS采购+定制集成", "pros": "上线快、成本可控", "cons": "集成深度有限、行业适配差" },
+          { "type": "开源EAM二次开发", "pros": "基础功能现成", "cons": "技术栈可能不匹配、长期维护成本不确定" }
+        ]
       },
       "technicalDirection": {
-        "architecture": "",
-        "deployment": "",
+        "architecture": "B/S架构 + 移动端适配，后端API服务 + 前端Web应用 [待确认]",
+        "deployment": "待确认——本地部署 or 私有云",
         "techStack": []
       },
       "implementationStrategy": {
-        "approach": "",
-        "pilotScope": "",
-        "rolloutPlan": ""
+        "approach": "分期交付，一期聚焦核心EAM功能（台账+维护+工单+备件），二期叠加数据分析",
+        "pilotScope": "选择一个车间试点 [假设待验证]",
+        "rolloutPlan": "试点验证 → 全厂推广 [假设待验证]"
       },
-      "nextSteps": []
+      "nextSteps": [
+        "与客户确认需求范围和优先级",
+        "了解5G数据采集系统的技术细节和接口情况",
+        "摸清客户预算范围和期望时间线",
+        "确认部署方式偏好（本地/云）"
+      ]
     },
 
-    "pendingQuestions": [],
+    "pendingQuestions": [
+      {
+        "id": "Q-001",
+        "question": "客户倾向定制开发还是SaaS采购？决策的关键考量是什么（成本、集成深度、上线速度）？",
+        "priority": "must",
+        "targetPerson": "项目决策人",
+        "purpose": "明确项目方向，直接影响方案设计",
+        "status": "open"
+      },
+      {
+        "id": "Q-002",
+        "question": "项目预算范围大致在什么区间？是否有已批准的预算？",
+        "priority": "must",
+        "targetPerson": "项目决策人/财务",
+        "purpose": "确定方案规模和实施范围",
+        "status": "open"
+      },
+      {
+        "id": "Q-003",
+        "question": "现有5G数据采集系统是哪家供应商的方案？支持什么协议（MQTT/OPC-UA/其他）？能提供接口文档吗？",
+        "priority": "must",
+        "targetPerson": "IT/设备管理部门",
+        "purpose": "评估集成难度和技术路线",
+        "status": "open"
+      },
+      {
+        "id": "Q-004",
+        "question": "目前设备管理的具体流程是什么样的？有没有在用的设备管理软件或Excel台账？",
+        "priority": "must",
+        "targetPerson": "设备管理部门负责人",
+        "purpose": "理解现状才能设计合理的系统流程",
+        "status": "open"
+      },
+      {
+        "id": "Q-005",
+        "question": "期望的上线时间？有没有硬性的时间节点要求（比如配合某个项目或考核周期）？",
+        "priority": "must",
+        "targetPerson": "项目决策人",
+        "purpose": "确定实施节奏和分期策略",
+        "status": "open"
+      },
+      {
+        "id": "Q-006",
+        "question": "全厂大约有多少台需要纳管的设备？设备种类和品牌有多分散？",
+        "priority": "nice-to-have",
+        "targetPerson": "设备管理部门",
+        "purpose": "评估数据量和设备台账的复杂度",
+        "status": "open"
+      },
+      {
+        "id": "Q-007",
+        "question": "目前备件管理是怎么做的？有独立的仓库管理系统吗？",
+        "priority": "nice-to-have",
+        "targetPerson": "设备管理/仓库",
+        "purpose": "确认备件管理模块的优先级和与现有系统的关系",
+        "status": "open"
+      },
+      {
+        "id": "Q-008",
+        "question": "系统部署倾向本地服务器还是云端？对数据存储位置有没有特殊要求？",
+        "priority": "nice-to-have",
+        "targetPerson": "IT部门/决策人",
+        "purpose": "确定技术架构和部署方案",
+        "status": "open"
+      },
+      {
+        "id": "Q-009",
+        "question": "是否有计划将EAM与ERP或其他管理系统打通？目前用的什么ERP？",
+        "priority": "nice-to-have",
+        "targetPerson": "IT部门",
+        "purpose": "评估系统集成范围",
+        "status": "open"
+      },
+      {
+        "id": "Q-010",
+        "question": "客户之前看过哪些SaaS产品？觉得哪些功能好、哪些不满足需求？",
+        "priority": "nice-to-have",
+        "targetPerson": "项目负责人",
+        "purpose": "了解竞品对标和客户期望基线",
+        "status": "open"
+      }
+    ],
 
     "completionRate": {
-      "overall": 0,
-      "byCategory": {},
-      "blockers": []
+      "overall": 35,
+      "byCategory": {
+        "background": 55,
+        "businessNeeds": 45,
+        "technicalNeeds": 30,
+        "constraints": 15,
+        "scope": 40,
+        "users": 25
+      },
+      "blockers": [
+        "预算和时间线完全未知",
+        "5G数据采集系统的技术细节未知",
+        "客户内部设备管理流程细节未知",
+        "定制 vs SaaS的决策倾向未确认"
+      ]
     }
   }
 }
